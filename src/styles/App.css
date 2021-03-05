@@ -1,0 +1,13 @@
+body {
+  min-height: 100vh;
+  background-color: #aaa;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  max-width: 90%;
+  margin: 0 auto;
+}

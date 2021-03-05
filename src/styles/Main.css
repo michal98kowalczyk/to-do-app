@@ -1,0 +1,32 @@
+main {
+  background-color: #777;
+  flex-grow: 1;
+
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+  grid-template-areas:
+    "form _all"
+    "today _all"
+    "done done";
+}
+
+form {
+  background-color: rgb(136, 124, 209);
+  grid-area: form;
+}
+
+.all {
+  background-color: rgb(15, 219, 175);
+  grid-area: _all;
+}
+
+.today {
+  background-color: rgb(48, 141, 79);
+  grid-area: today;
+}
+
+.done {
+  background-color: rgb(132, 187, 60);
+  grid-area: done;
+}

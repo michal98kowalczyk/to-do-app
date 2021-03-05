@@ -6,22 +6,28 @@ import Footer from "./components/Footer";
 import  "./styles/App.css";
 
 
-const defaultTasks = [{id:1,title:"pierwszy task",date:"2021-03-06",isDone:false,time:0},
-                      {id:2,title:"drugi task",date:"2021-03-07",isDone:false,time:1},
-                      {id:3,title:"trzeci task",date:"2021-03-06",isDone:true,time:2},
-                      {id:4,title:"czwarty task",date:"2021-03-05",isDone:false,time:0}];
+const defaultTasks = [{id:1,title:"pierwszy task",date:"06.03.2021",isDone:false,isImportant:false, finishDate:0},
+                      {id:2,title:"drugi task",date:"07.03.2021",isDone:false,isImportant:false, finishDate:1},
+                      {id:3,title:"trzeci task",date:"06.03.2021",isDone:true,isImportant:false, finishDate:2},
+                      {id:4,title:"czwarty task",date:"05.03.2021",isDone:false,isImportant:false, finishDate:0},
+                      {id:5,title:"5 task",date:"06.03.2021",isDone:false,isImportant:false, finishDate:0},
+                      {id:6,title:"6 task",date:"07.03.2021",isDone:false,isImportant:false, finishDate:1},
+                      {id:7,title:"7 task",date:"06.03.2021",isDone:true,isImportant:false, finishDate:5},
+                      {id:8,title:"8 task",date:"05.03.2021",isDone:false,isImportant:false, finishDate:0}];
 
 const App = () => {
 
   const [tasks,setTask] = useState(defaultTasks);
 
-
+  const addTask = task => {
+    setTask();
+  }
 
   return (
     <div className="App">
 
       <Header/>
-      <Main/>
+      <Main tasks={tasks} addTask={addTask}/>
       <Footer/>
 
 

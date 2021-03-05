@@ -4,9 +4,10 @@ main {
 
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+  grid-template-rows: 25% 25% 25% 25%;
   grid-template-areas:
     "form _all"
+    "today _all"
     "today _all"
     "done done";
 }

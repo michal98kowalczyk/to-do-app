@@ -6,13 +6,14 @@ import "../styles/Main.css";
 
 
 
-const Main = () => {
+const Main = (props) => {
     
+    const {tasks,addTask} = props;
 
     return(
         <main>
-            <Form/>
-            <TasksList/>
+            <Form addTask={addTask} tasks={tasks}/>
+            <TasksList tasks={tasks}/>
         </main>
     )
 }

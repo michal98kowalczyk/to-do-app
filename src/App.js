@@ -19,15 +19,22 @@ const App = () => {
 
   const [tasks,setTask] = useState(defaultTasks);
 
-  const addTask = task => {
-    setTask();
+  const addTask = task => setTask([...tasks,task]);
+
+  const setTaskAsDone = id => {
+    console.log(id);
   }
+
+  const removeTask = id =>{
+    console.log(id);
+  }
+
 
   return (
     <div className="App">
 
       <Header/>
-      <Main tasks={tasks} addTask={addTask}/>
+      <Main tasks={tasks} addTask={addTask} setTaskAsDone={setTaskAsDone} removeTask={removeTask} />
       <Footer/>
 
 

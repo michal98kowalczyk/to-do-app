@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "../styles/Form.css";
 
-const Form = ({tasks,addTask}) => {
+const Form = ({addTask}) => {
 
     const today = new Date();
     const year = today.getFullYear();
@@ -22,7 +22,7 @@ const Form = ({tasks,addTask}) => {
 
     const handleAddTask = (e) =>{
         e.preventDefault();
-        console.log(date);
+      
         const _year = date.slice(0,4);
         const _month = date.slice(5,7) ;
         const _day = date.slice(8);
@@ -38,11 +38,9 @@ const Form = ({tasks,addTask}) => {
 
         }
 
-        console.log(task);
-        console.log(addTask);
-        let newTasks = tasks;
-        newTasks.push(task)
-        addTask(newTasks);
+     
+
+        addTask(task);
 
 
     }

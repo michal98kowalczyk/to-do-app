@@ -5,23 +5,22 @@ import Task from './Task';
 
 const TasksList = (props) => {
 
-    const {tasks} = props;
-    console.log(tasks);
+    const {tasks,setTaskAsDone,removeTask} = props;
 
     const allUnfinishedTasks =  tasks.filter(task => !task.isDone)
-                            .map(task => <Task key={task.id} title={task.title} date={task.date}/>); 
+                            .map(task => <Task key={task.id}  task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/>); 
                             
 
     const finishedTasks = tasks.filter(task => task.isDone)
-                            .map( task => <Task  key={task.id} title={task.title} date={task.date}/> );
+                            .map( task => <Task  key={task.id} task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/> );
     
     
 
     const today = new Date();
     const dateToCompare = today.getDay() > 10 ? today : "0"+today.toLocaleDateString();
 
-    const todaysTasks = tasks.filter(task => task.date === dateToCompare)
-                        .map(task => <Task key={task.id} title={task.title} date={task.date} />);
+    const todaysTasks = tasks.filter(task => task.date === dateToCompare && !task.isDone)
+                        .map(task => <Task key={task.id} task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask} />);
 
     return (
         <>

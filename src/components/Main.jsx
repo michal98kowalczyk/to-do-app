@@ -8,12 +8,12 @@ import "../styles/Main.css";
 
 const Main = (props) => {
     
-    const {tasks,addTask} = props;
+    const {tasks,addTask,removeTask,setTaskAsDone} = props;
 
     return(
         <main>
-            <Form addTask={addTask} tasks={tasks}/>
-            <TasksList tasks={tasks}/>
+            <Form addTask={addTask} />
+            <TasksList tasks={tasks} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/>
         </main>
     )
 }

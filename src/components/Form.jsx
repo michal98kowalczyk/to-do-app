@@ -33,11 +33,11 @@ const Form = ({addTask}) => {
             date : [_day,_month,_year].join('.'),
             isImportant,
             isDone:false,
-            finishDate:(new Date()).getTime()
+            finishDate:0
 
 
         }
-
+        (new Date()).getTime();
      
 
         addTask(task);

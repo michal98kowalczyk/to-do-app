@@ -11,8 +11,9 @@ const TasksList = (props) => {
                             .map(task => <Task key={task.id}  task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/>); 
                             
 
-    const finishedTasks = tasks.filter(task => task.isDone)
+    const finishedTasks = tasks.filter(task => task.isDone).sort((a,b) => b.finishDate - a.finishDate)
                             .map( task => <Task  key={task.id} task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/> );
+                            
     
     
 
@@ -41,7 +42,7 @@ const TasksList = (props) => {
         <section className="done">
             zrobione
         <ul>
-            {finishedTasks}
+            {finishedTasks.slice(0,5)}
         </ul>
         
         <p>Łącznie wykonanych zadań <span>{finishedTasks.length}</span></p>

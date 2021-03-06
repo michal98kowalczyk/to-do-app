@@ -10,7 +10,7 @@ const Task = (props) => {
 
     
     const handleOnFinishTask = e =>{
-        console.log()
+       
         setTaskAsDone(id);
     }
 
@@ -18,7 +18,7 @@ const Task = (props) => {
         removeTask(id);
     }
     
-    console.log(String(isDone));
+    
 
     const iconsForTask = <>
         <FontAwesomeIcon onClick={handleOnFinishTask} className="approve" icon={faCheckSquare} /> 

@@ -8,14 +8,24 @@ const TasksList = (props) => {
 
     
 
-    const {tasks,setTaskAsDone,removeTask} = props;
+    const {tasks,setTaskAsDone,removeTask,toggleImportant} = props;
     
     const allUnfinishedTasks =  tasks.filter(task => !task.isDone)
-                            .map(task => <Task key={task.id}  task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/>); 
+                            .map(task => <Task key={task.id}  
+                                task={task} 
+                                setTaskAsDone={setTaskAsDone} 
+                                removeTask={removeTask}
+                                toggleImportant={toggleImportant}
+                                />); 
                             
 
     const finishedTasks = tasks.filter(task => task.isDone).sort((a,b) => b.finishDate - a.finishDate)
-                            .map( task => <Task  key={task.id} task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/> );
+                            .map( task => <Task  key={task.id}
+                                 task={task} 
+                                 setTaskAsDone={setTaskAsDone} 
+                                 removeTask={removeTask}
+                                 
+                                 /> );
                             
     
     
@@ -24,7 +34,12 @@ const TasksList = (props) => {
     const dateToCompare = today.getDay() > 10 ? today : "0"+today.toLocaleDateString();
 
     const todaysTasks = tasks.filter(task => task.date === dateToCompare && !task.isDone)
-                        .map(task => <Task key={task.id} task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask} />);
+                        .map(task => <Task key={task.id} 
+                            task={task} 
+                            setTaskAsDone={setTaskAsDone} 
+                            removeTask={removeTask} 
+                            toggleImportant={toggleImportant}
+                            />);
 
     return (
         <>

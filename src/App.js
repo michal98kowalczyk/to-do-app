@@ -55,6 +55,16 @@ const App = () => {
     setTask(newTasks);
   }
 
+  const toggleImportant = id =>{
+    const newTasks = tasks.map(task => {
+      if(task.id===id) task.isImportant= !task.isImportant;
+
+      return task;
+    });
+
+    setTask(newTasks);
+  }
+
   
   return (
     
@@ -65,7 +75,14 @@ const App = () => {
       <Header/>
 
       <Switch>
-      <Route path="/"   exact render={()=> <Main tasks={tasks} addTask={addTask} setTaskAsDone={setTaskAsDone} removeTask={removeTask} /> }/>
+
+      <Route path="/"   exact render={()=> <Main 
+      tasks={tasks}
+       addTask={addTask} 
+       toggleImportant = {toggleImportant}
+       setTaskAsDone={setTaskAsDone}
+        removeTask={removeTask} /> }/>
+
       <Route path="/done" render={() => <AllDoneTasks tasks={tasks} /> }/>
       <Redirect from="*" to="/"/>
 

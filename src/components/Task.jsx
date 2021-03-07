@@ -1,11 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare, faTrashAlt } from '@fortawesome/fontawesome-free-solid'
+import { faCheckSquare, faTrashAlt, faExclamation } from '@fortawesome/fontawesome-free-solid'
 
 import "../styles/Task.css";
 
 const Task = (props) => {
-    const {task,setTaskAsDone,removeTask} = props;
+    const {task,setTaskAsDone,removeTask,toggleImportant} = props;
     const {id,title,date,isDone,isImportant} = task;
 
     
@@ -17,11 +17,15 @@ const Task = (props) => {
     const handleOnRemoveTask = e =>{
         removeTask(id);
     }
+    const handleOnToggleImportant = e =>{
+        toggleImportant(id);
+    }
     
     
 
     const iconsForTask = <>
         <FontAwesomeIcon onClick={handleOnFinishTask} className="approve" icon={faCheckSquare} /> 
+        <FontAwesomeIcon onClick={handleOnToggleImportant} className="toggleImportant" icon={faExclamation} />
         <FontAwesomeIcon onClick={handleOnRemoveTask} className="remove" icon={faTrashAlt} />
         </>
 

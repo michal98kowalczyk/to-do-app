@@ -1,5 +1,5 @@
 main {
-  background-color: #777;
+  /* background-color: #777; */
   flex-grow: 1;
 
   display: grid;
@@ -12,22 +12,31 @@ main {
     "done done";
 }
 
-form {
-  background-color: rgb(136, 124, 209);
+.formWrapper {
+  background-color: rgba(149, 148, 153, 0.507);
   grid-area: form;
+
+  border-radius: 20%;
+  margin: 0 10px;
 }
 
 .all {
-  background-color: rgb(15, 219, 175);
+  background-color: rgba(149, 148, 153, 0.507);
+  border-radius: 10%;
   grid-area: _all;
+  text-align: center;
 }
 
 .today {
-  background-color: rgb(48, 141, 79);
+  background-color: rgba(149, 148, 153, 0.507);
   grid-area: today;
+  text-align: center;
+  border-radius: 10%;
 }
 
 .done {
-  background-color: rgb(132, 187, 60);
+  background-color: rgba(149, 148, 153, 0.507);
   grid-area: done;
+
+  border-radius: 10%;
 }

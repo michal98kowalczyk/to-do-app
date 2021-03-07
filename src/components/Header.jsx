@@ -8,7 +8,9 @@ const Header = () => {
     
 
     return(
-        <header>{title}</header>
+        <header>
+           <h1>{title}</h1> 
+        </header>
     )
 }
 

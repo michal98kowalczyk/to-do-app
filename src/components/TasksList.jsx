@@ -44,28 +44,34 @@ const TasksList = (props) => {
     return (
         <>
         <section className="all">
-            Wszytskie taski do zrobienia
+           <h2>Wszytskie taski do zrobienia</h2> 
         <ul>
             {allUnfinishedTasks}
         </ul>
         
         </section>
         <section className="today"> 
-        Na dzisiaj
+        <h2>Na dzisiaj</h2>
+        
         <ul>
             {todaysTasks}
         </ul>
         </section>
          
         <section className="done">
-            zrobione
+        <div className="doneTasks">
+        <h3>zrobione</h3>
+            
         <ul>
             {finishedTasks.slice(0,5)}
         </ul>
+        </div>
         
+        <div className="stats">
         <p>Łącznie wykonanych zadań <span>{finishedTasks.length}</span></p>
         
         {finishedTasks.length>5 &&  <button> <Link to="/done" >Pokaż wszystkie </Link></button>}
+        </div>
 
         </section>
         </>

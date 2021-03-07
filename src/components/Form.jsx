@@ -59,6 +59,7 @@ const Form = ({addTask}) => {
     }
 
     return(
+        <div className="formWrapper">
         <form >
 
             <label htmlFor="title">Nazwa zadania:
@@ -75,6 +76,7 @@ const Form = ({addTask}) => {
 
             <button onClick={handleAddTask} >Dodaj</button>
         </form>
+        </div>
     )
 }
 

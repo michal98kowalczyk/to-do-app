@@ -7,8 +7,10 @@ const Form = ({addTask}) => {
     const today = new Date();
     const year = today.getFullYear();
     const month = (today.getMonth()+1)>9 ? today.getMonth()+1 : `0${today.getMonth()+1}` ;
-    const day = today.getDay()>10 ? today.getDay() : "0"+today.getDay();
+    const day = today.getDate()>10 ? today.getDate() : "0"+today.getDate();
     const _date = [year,month,day].join('-');
+
+
 
    
 
@@ -17,11 +19,18 @@ const Form = ({addTask}) => {
     const [isImportant,setIsImportant] = useState(false);
 
     const handleOnTitleChange = (e) => setTitle(e.target.value);
-    const handleOnDateChange = (e) =>setDate(e.target.value);
+    const handleOnDateChange = (e) => setDate(e.target.value);
+        
+    
     const handleOnIsImportantChange = (e) => setIsImportant(!isImportant);
 
     const handleAddTask = (e) =>{
         e.preventDefault();
+
+        if(!title.length){
+            alert("Pole z nazwą zadania nie może być puste!!!");
+            return;
+        }
       
         const _year = date.slice(0,4);
         const _month = date.slice(5,7) ;
@@ -37,19 +46,32 @@ const Form = ({addTask}) => {
 
 
         }
-        (new Date()).getTime();
+        
      
 
         addTask(task);
+        setTitle('');
+        setDate(_date);
+        setIsImportant(false);
+
 
 
     }
 
     return(
         <form >
-            <input value={title} onChange={handleOnTitleChange} type="text"/>
-            <input value={date}  onChange={handleOnDateChange} min={_date}  max={[year+1,month,day].join('-')} type="date"/>
-            <input checked={isImportant} onChange={handleOnIsImportantChange} type="checkbox"/>
+
+            <label htmlFor="title">Nazwa zadania:
+            <input id="title" value={title} onChange={handleOnTitleChange} type="text"  />
+            </label>
+            <label htmlFor="date">Data wygaśnięcia:
+            <input id="date" value={date}  onChange={handleOnDateChange} min={_date}  max={[year+1,month,day].join('-')} type="date"/>
+            </label>
+            <label htmlFor="checkbox">Pilne:
+            <input id="checkbox" checked={isImportant} onChange={handleOnIsImportantChange} type="checkbox"/>
+            </label>
+            
+
 
             <button onClick={handleAddTask} >Dodaj</button>
         </form>

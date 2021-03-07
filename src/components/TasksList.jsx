@@ -1,12 +1,15 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 import "../styles/TasksList.css";
 import Task from './Task';
 
 const TasksList = (props) => {
 
-    const {tasks,setTaskAsDone,removeTask} = props;
+    
 
+    const {tasks,setTaskAsDone,removeTask} = props;
+    
     const allUnfinishedTasks =  tasks.filter(task => !task.isDone)
                             .map(task => <Task key={task.id}  task={task} setTaskAsDone={setTaskAsDone} removeTask={removeTask}/>); 
                             
@@ -47,7 +50,7 @@ const TasksList = (props) => {
         
         <p>Łącznie wykonanych zadań <span>{finishedTasks.length}</span></p>
         
-        {finishedTasks.length>5 &&  <button>Pokaż wszystkie</button>}
+        {finishedTasks.length>5 &&  <button> <Link to="/done" >Pokaż wszystkie </Link></button>}
 
         </section>
         </>

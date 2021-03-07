@@ -6,7 +6,7 @@ import "../styles/Task.css";
 
 const Task = (props) => {
     const {task,setTaskAsDone,removeTask} = props;
-    const {id,title,date,isDone} = task;
+    const {id,title,date,isDone,isImportant} = task;
 
     
     const handleOnFinishTask = e =>{
@@ -26,7 +26,7 @@ const Task = (props) => {
         </>
 
     return(
-        <li > {title} - {date} 
+        <li className={isImportant ? "important" : ""}> {title} - {date} 
         {!isDone && iconsForTask}
         
         </li>

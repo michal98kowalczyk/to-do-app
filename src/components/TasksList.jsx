@@ -28,10 +28,14 @@ const TasksList = (props) => {
                                  /> );
                             
     
-    
+   
 
     const today = new Date();
-    const dateToCompare = today.getDay() > 10 ? today : "0"+today.toLocaleDateString();
+    
+
+    const dateToCompare = today.getDate() > 10 ? today.toLocaleDateString() : "0"+today.toLocaleDateString();
+
+ 
 
     const todaysTasks = tasks.filter(task => task.date === dateToCompare && !task.isDone)
                         .map(task => <Task key={task.id} 

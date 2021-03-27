@@ -48,7 +48,7 @@ const TasksList = (props) => {
     return (
         <>
         <section className="all">
-           <h2>Wszytskie taski do zrobienia</h2> 
+           <h2>Wszystkie taski do zrobienia</h2> 
         <ul>
             {allUnfinishedTasks}
         </ul>
@@ -67,14 +67,14 @@ const TasksList = (props) => {
         <h3>zrobione</h3>
             
         <ul>
-            {finishedTasks.slice(0,5)}
+            {finishedTasks.slice(0,3)}
         </ul>
         </div>
         
         <div className="stats">
         <p>Łącznie wykonanych zadań <span>{finishedTasks.length}</span></p>
         
-        {finishedTasks.length>5 &&  <button> <Link to="/done" >Pokaż wszystkie </Link></button>}
+        {finishedTasks.length>3 &&  <button> <Link to="/done" >Pokaż wszystkie </Link></button>}
         </div>
 
         </section>
